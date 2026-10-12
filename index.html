@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>CAD Workshop 3D - Simulador Mecánico Holográfico</title>
+    <meta name="description" content="Simulador interactivo 3D de ensamble y desensamble mecánico con visualización CAD, despiece con explosión gradual y auto-acople magnético." />
+    <meta property="og:title" content="CAD Workshop 3D - Simulador Mecánico Holográfico" />
+    <meta property="og:description" content="Simulador interactivo 3D de ensamble y desensamble mecánico con visualización CAD, despiece con explosión gradual y auto-acople magnético." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- PWA & Mobile Standalone Capabilities -->
+    <meta name="theme-color" content="#1d4ed8" />
+    <meta name="background-color" content="#e2e8f0" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="CAD 3D" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Embedded High-Resolution Vector PWA Icon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%230f172a'/%3E%3Cstop offset='100%25' stop-color='%231e293b'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='512' height='512' rx='112' fill='url(%23bg)'/%3E%3Cpolygon points='256,110 376,178 256,246 136,178' fill='%2338bdf8' stroke='%23ffffff' stroke-width='4'/%3E%3Cpolygon points='136,178 256,246 256,386 136,318' fill='%231d4ed8' stroke='%23ffffff' stroke-width='4'/%3E%3Cpolygon points='256,246 376,178 376,318 256,386' fill='%230284c7' stroke='%23ffffff' stroke-width='4'/%3E%3Ccircle cx='256' cy='246' r='30' fill='%230f172a' stroke='%2300e5ff' stroke-width='4'/%3E%3Ccircle cx='256' cy='246' r='6' fill='%2300e5ff'/%3E%3C/svg%3E" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%230f172a'/%3E%3Cstop offset='100%25' stop-color='%231e293b'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='512' height='512' rx='112' fill='url(%23bg)'/%3E%3Cpolygon points='256,110 376,178 256,246 136,178' fill='%2338bdf8' stroke='%23ffffff' stroke-width='4'/%3E%3Cpolygon points='136,178 256,246 256,386 136,318' fill='%231d4ed8' stroke='%23ffffff' stroke-width='4'/%3E%3Cpolygon points='256,246 376,178 376,318 256,386' fill='%230284c7' stroke='%23ffffff' stroke-width='4'/%3E%3Ccircle cx='256' cy='246' r='30' fill='%230f172a' stroke='%2300e5ff' stroke-width='4'/%3E%3Ccircle cx='256' cy='246' r='6' fill='%2300e5ff'/%3E%3C/svg%3E" />
+
+    <!-- 1. Inline Web App Manifest Embebido (Data-URI & Fallback Dinámico) -->
+    <script>
+      (function() {
+        const svgIconData = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(
+          "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>" +
+          "<rect width='512' height='512' rx='112' fill='%230f172a'/>" +
+          "<polygon points='256,110 376,178 256,246 136,178' fill='%2338bdf8' stroke='%23ffffff' stroke-width='4'/>" +
+          "<polygon points='136,178 256,246 256,386 136,318' fill='%231d4ed8' stroke='%23ffffff' stroke-width='4'/>" +
+          "<polygon points='256,246 376,178 376,318 256,386' fill='%230284c7' stroke='%23ffffff' stroke-width='4'/>" +
+          "<circle cx='256' cy='246' r='30' fill='%230f172a' stroke='%2300e5ff' stroke-width='4'/>" +
+          "<circle cx='256' cy='246' r='6' fill='%2300e5ff'/>" +
+          "</svg>"
+        );
+
+        const manifestObj = {
+          name: "CAD Workshop 3D",
+          short_name: "CAD 3D",
+          start_url: "./index.html",
+          scope: "./",
+          display: "standalone",
+          orientation: "any",
+          background_color: "#e2e8f0",
+          theme_color: "#1d4ed8",
+          description: "Simulador interactivo 3D de ensamble y desensamble mecánico con visualización CAD.",
+          icons: [
+            {
+              src: svgIconData,
+              sizes: "192x192",
+              type: "image/svg+xml",
+              purpose: "any"
+            },
+            {
+              src: svgIconData,
+              sizes: "512x512",
+              type: "image/svg+xml",
+              purpose: "any"
+            },
+            {
+              src: svgIconData,
+              sizes: "512x512",
+              type: "image/svg+xml",
+              purpose: "maskable"
+            }
+          ]
+        };
+
+        const manifestBlob = new Blob([JSON.stringify(manifestObj)], { type: 'application/manifest+json' });
+        const manifestUrl = URL.createObjectURL(manifestBlob);
+        const link = document.createElement('link');
+        link.rel = 'manifest';
+        link.href = manifestUrl;
+        document.head.appendChild(link);
+      })();
+    </script>
+
+    <!-- 2. Service Worker Inline / Autocontenido con script Blob (Cache 'cad-pwa-v1' y 100% Offline-Ready) -->
+    <script>
+      (function() {
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', function() {
+            const swCode = `
+              const CACHE_NAME = 'cad-pwa-v1';
+              const OFFLINE_URLS = [
+                './',
+                './index.html',
+                'https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap'
+              ];
+
+              self.addEventListener('install', (event) => {
+                event.waitUntil(
+                  caches.open(CACHE_NAME).then((cache) => {
+                    return cache.addAll(OFFLINE_URLS).catch((err) => {
+                      console.warn('[PWA] Cache pre-fill partial:', err);
+                    });
+                  }).then(() => self.skipWaiting())
+                );
+              });
+
+              self.addEventListener('activate', (event) => {
+                event.waitUntil(
+                  caches.keys().then((keys) =>
+                    Promise.all(
+                      keys.map((key) => {
+                        if (key !== CACHE_NAME) return caches.delete(key);
+                      })
+                    )
+                  ).then(() => self.clients.claim())
+                );
+              });
+
+              self.addEventListener('fetch', (event) => {
+                if (event.request.method !== 'GET') return;
+                event.respondWith(
+                  caches.match(event.request).then((cachedResponse) => {
+                    if (cachedResponse) {
+                      return cachedResponse;
+                    }
+                    return fetch(event.request)
+                      .then((networkResponse) => {
+                        if (!networkResponse || networkResponse.status !== 200 || networkResponse.type === 'opaque') {
+                          return networkResponse;
+                        }
+                        const responseToCache = networkResponse.clone();
+                        caches.open(CACHE_NAME).then((cache) => {
+                          cache.put(event.request, responseToCache);
+                        });
+                        return networkResponse;
+                      })
+                      .catch(() => {
+                        return caches.match('./index.html') || caches.match('./');
+                      });
+                  })
+                );
+              });
+            `;
+
+            try {
+              const swBlob = new Blob([swCode], { type: 'application/javascript' });
+              const swUrl = URL.createObjectURL(swBlob);
+              navigator.serviceWorker.register(swUrl)
+                .then(function(reg) {
+                  // SW registered successfully
+                })
+                .catch(function(err) {
+                  console.warn('[PWA] Service Worker registration skipped:', err);
+                });
+            } catch (err) {
+              console.warn('[PWA] Blob Service Worker not supported:', err);
+            }
+          });
+        }
+      })();
+    </script>
+  </head>
+  <body class="light-mode antialiased overflow-hidden select-none touch-none-viewport">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

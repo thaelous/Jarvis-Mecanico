@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="cadBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+    <linearGradient id="cadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#cadBg)"/>
+  <path d="M64 128h384M64 192h384M64 256h384M64 320h384M64 384h384" stroke="#334155" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.4"/>
+  <path d="M128 64v384M192 64v384M256 64v384M320 64v384M384 64v384" stroke="#334155" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.4"/>
+  <!-- Isometric Mechanical CAD Cube -->
+  <polygon points="256,110 376,178 256,246 136,178" fill="#38bdf8" fill-opacity="0.9" stroke="#ffffff" stroke-width="3.5"/>
+  <polygon points="136,178 256,246 256,386 136,318" fill="#1d4ed8" fill-opacity="0.95" stroke="#ffffff" stroke-width="3.5"/>
+  <polygon points="256,246 376,178 376,318 256,386" fill="#0284c7" fill-opacity="0.9" stroke="#ffffff" stroke-width="3.5"/>
+  <!-- Central Gear Aperture & Tech Marks -->
+  <circle cx="256" cy="246" r="34" fill="#0f172a" stroke="#00e5ff" stroke-width="4"/>
+  <circle cx="256" cy="246" r="18" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="6 3"/>
+  <circle cx="256" cy="246" r="6" fill="#00e5ff"/>
+  <!-- Dimension / Caliper Lines -->
+  <line x1="106" y1="168" x2="106" y2="328" stroke="#f59e0b" stroke-width="3"/>
+  <line x1="98" y1="168" x2="114" y2="168" stroke="#f59e0b" stroke-width="3"/>
+  <line x1="98" y1="328" x2="114" y2="328" stroke="#f59e0b" stroke-width="3"/>
+  <!-- Tech Accents -->
+  <path d="M48 88V48h40" stroke="#00e5ff" stroke-width="4" fill="none"/>
+  <path d="M464 88V48h-40" stroke="#00e5ff" stroke-width="4" fill="none"/>
+  <path d="M48 424v40h40" stroke="#00e5ff" stroke-width="4" fill="none"/>
+  <path d="M464 424v40h-40" stroke="#00e5ff" stroke-width="4" fill="none"/>
+</svg>

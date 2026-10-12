@@ -1,0 +1,8 @@
+{
+  "name": "Remix CAD Workshop 3D - Simulador Mecánico Holográfico",
+  "description": "Simulador interactivo 3D de ensamble y desensamble mecánico con visualización CAD, despiece con explosión gradual y auto-acople magnético.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
